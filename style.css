@@ -1071,7 +1071,14 @@ footer p {
     
     .products-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 20px;
+        justify-items: center; /* 카드 중앙 정렬 */
+    }
+    
+    .product-card {
+        width: 100%;
+        max-width: 280px; /* 컴퓨터 크기와 동일한 컴팩트함 유지 */
+        margin: 0 auto;
     }
     
     .do-do-not-section {
@@ -1124,7 +1131,7 @@ footer p {
     }
 
     .product-img-wrapper {
-        height: 200px; /* 모바일 비례에 맞는 적절한 높이 설정 */
+        height: 280px; /* 컴퓨터 크기와 동일하게 280px로 변경 */
     }
 
     .product-info {
