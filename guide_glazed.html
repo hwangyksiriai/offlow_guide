@@ -18,7 +18,7 @@
     <nav class="hub-nav">
         <div class="container">
             <span class="hub-logo">OFFLOW</span>
-            <a href="campaign_hub.html" class="btn-hub-back"><i class="fa-solid fa-chevron-left"></i> CAMPAIGN HUB</a>
+            <a href="campaign_hub.html" class="btn-hub-back" id="hub-back-btn" style="display: none;"><i class="fa-solid fa-chevron-left"></i> CAMPAIGN HUB</a>
         </div>
     </nav>
 
@@ -367,6 +367,15 @@
             setTimeout(function() {
                 toast.classList.remove('show');
             }, 2000);
+        }
+
+        // URL 파라미터 체크하여 role=admin 일 때만 허브 이동 버튼 표시
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('role') === 'admin') {
+            const backBtn = document.getElementById('hub-back-btn');
+            if (backBtn) {
+                backBtn.style.display = 'inline-flex';
+            }
         }
     </script>
 </body>
