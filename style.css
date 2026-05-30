@@ -1,0 +1,1421 @@
+/* 
+ * OFFLOW OFFICIAL CAMPAIGN DESIGN SYSTEM
+ * Theme: Refined Cool Mono, Silver Metallic & Asymmetric Knot Silhouette
+ */
+
+:root {
+    /* Color Palette - 7번 사진의 신비로운 쿨 블랙/그레이 스펙트럼 반영 */
+    --primary-color: #12131A;    /* 쿨 딥 블랙 */
+    --primary-light: #F2F4F7;    /* 쿨 라이트 그레이 */
+    --bg-light: #F7F9FC;         /* 쿨 오프 화이트 */
+    --card-bg: #FFFFFF;
+    --text-main: #1C1D24;        /* 차분한 다크 네이비 블랙 */
+    --text-muted: #6E7280;       /* 슬레이트 그레이 */
+    --text-light: #9CA3AF;
+    --border-color: #E5E7EB;     /* 정교한 쿨 그레이 보더 */
+    
+    /* Premium Silver Gradient - 매듭의 은은한 메탈 광택 시각화 */
+    --silver-gradient: linear-gradient(135deg, #E5E8F0 0%, #FFFFFF 40%, #D1D5E0 60%, #9EA5B5 100%);
+    --silver-metallic: linear-gradient(90deg, #E2E8F0, #CBD5E1, #94A3B8, #CBD5E1, #E2E8F0);
+    
+    /* Brand Point */
+    --accent-color: #2F3E46;
+    
+    /* DO / DO NOT - 극단적으로 절제되고 가독성 높은 모노 톤 */
+    --do-color: #12131A;
+    --do-bg: #F8FAFC;
+    --donot-color: #64748B;
+    --donot-bg: #F8FAFC;
+    
+    /* Structure & Effects - 비대칭 매듭(Knot) 래디우스 설계 */
+    --shadow-sm: 0 4px 12px rgba(28, 29, 36, 0.03);
+    --shadow-md: 0 16px 36px rgba(28, 29, 36, 0.06);
+    --shadow-lg: 0 24px 48px rgba(28, 29, 36, 0.1);
+    
+    /* 세련된 비대칭 보더 래디우스 (매듭의 엮임 형상화) */
+    --radius-knot: 24px 4px 24px 4px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.7;
+    letter-spacing: -0.02em;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 120px;
+}
+
+.container {
+    max-width: 660px; /* 더욱 압축된 포커스 뷰 */
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Hero Section - 7번 모델 컷 핏 & 모던 다이내믹 라이트 */
+.hero-section {
+    position: relative;
+    padding: 90px 0 80px 0;
+    text-align: center;
+    background-color: #000000;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url('images/7.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    border-bottom: 1px solid #111111;
+    overflow: hidden;
+}
+
+.glow-bg {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0) 65%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.brand-badge {
+    display: inline-block;
+    padding: 5px 18px;
+    font-size: 9px;
+    letter-spacing: 5px;
+    font-weight: 800;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 0;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.brand-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: 14px;
+    line-height: 1.0;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+    text-indent: 14px; /* 정중앙 정렬 */
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.brand-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+/* Button Styling - 시크 흑백 & 메탈 믹스 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(18, 19, 26, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: #333645;
+    border-color: #333645;
+    transform: translateY(-1.5px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.btn-outline:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-color: #FFFFFF;
+    transform: translateY(-1.5px);
+}
+
+.btn-outline-dark {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    transform: translateY(-1.5px);
+}
+
+.btn-sm {
+    padding: 10px 22px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.btn-xs {
+    padding: 6px 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+
+.btn-copy {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: 1px solid var(--primary-color);
+}
+
+.btn-copy:hover {
+    background-color: #333645;
+    border-color: #333645;
+}
+
+.btn-copy-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 4px;
+    font-size: 13px;
+    transition: var(--transition);
+}
+
+.btn-copy-icon:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Card - 세련된 비대칭 매듭 보더 디자인 적용 */
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-knot); /* 엮는 모양의 비대칭 보더 */
+    border: 1px solid var(--border-color);
+    padding: 36px;
+    margin-top: 28px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 카드 상단에 은은한 메탈릭 실버 탑보더 포인트를 입혀 세련미 강화 */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--silver-metallic);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--text-light);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1.5px solid var(--primary-color);
+    padding-bottom: 14px;
+}
+
+.card-icon {
+    font-size: 10px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.card-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    color: var(--text-main);
+}
+
+/* Brand About Card */
+.brand-about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.brand-about-content .slogan {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 0.03em;
+    word-break: keep-all;
+    border-left: 2px solid var(--primary-color);
+    padding-left: 16px;
+    line-height: 1.5;
+}
+
+.brand-about-content .desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 400;
+    word-break: keep-all;
+}
+
+.brand-about-content .desc strong {
+    color: #000000;
+    font-weight: 600;
+}
+
+.brand-about-actions {
+    margin-top: 10px;
+}
+
+/* Campaign Overview Grid */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.overview-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    background-color: var(--primary-light);
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.overview-item:hover {
+    border-color: var(--border-color);
+    background-color: #FFFFFF;
+    transform: translateY(-1px);
+}
+
+.overview-item .label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+}
+
+.overview-item .value {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Product Section */
+.section-products {
+    margin-top: 56px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.section-title h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-knot); /* 제품 카드에도 비대칭 매듭 보더 적용 */
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--silver-metallic);
+    z-index: 3;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.product-card:hover .product-img-wrapper img {
+    transform: scale(1.04);
+}
+
+.product-tag {
+    background: var(--primary-color);
+    color: #FFFFFF;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 8px 12px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    z-index: 2;
+}
+
+.product-img-wrapper {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: var(--primary-light);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.product-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition);
+}
+
+.product-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-brand {
+    font-family: 'Outfit', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    margin-bottom: 6px;
+}
+
+.product-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.product-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    flex-grow: 1;
+    word-break: keep-all;
+    line-height: 1.7;
+}
+
+.btn-product {
+    margin-top: auto;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-product:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+}
+
+/* Timeline / Video Guide */
+.guide-intro {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 36px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background-color: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-number {
+    position: absolute;
+    left: -28px;
+    top: 4px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border-radius: 50%; /* 타임라인 번호 원형 최적화 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.timeline-content h4 {
+    font-size: 14.5px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timeline-content p {
+    font-size: 13px;
+    color: var(--text-muted);
+    word-break: keep-all;
+    line-height: 1.7;
+}
+
+.sub-tips {
+    margin-top: 12px;
+    background-color: var(--primary-light);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.sub-tips span {
+    font-size: 12.5px;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.sub-tips span i {
+    font-size: 8px;
+    margin-right: 6px;
+    color: var(--text-muted);
+}
+
+/* Recommendations Card - 그라데이션을 뺀 정제된 쿨 그레이 단색 스타일 */
+.recommendations {
+    background-color: var(--primary-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    margin-top: 36px;
+    color: var(--primary-color);
+}
+
+.recommendations h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.rec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.rec-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 16px 10px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.rec-card:hover {
+    transform: translateY(-2px);
+    background-color: #FFFFFF;
+}
+
+.rec-card i {
+    font-size: 5px;
+    color: var(--primary-color);
+}
+
+.rec-card span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-color);
+    word-break: keep-all;
+    line-height: 1.4;
+}
+
+/* DO & DO NOT */
+.do-do-not-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 28px;
+}
+
+.do-card, .donot-card {
+    margin-top: 0;
+    border-width: 1px;
+}
+
+.do-card {
+    border-color: var(--border-color);
+}
+
+.donot-card {
+    border-color: var(--border-color);
+}
+
+.border-do, .border-donot {
+    border-bottom: 1.5px solid var(--primary-color) !important;
+}
+
+.text-do {
+    color: var(--primary-color) !important;
+}
+
+.text-donot {
+    color: var(--text-muted) !important;
+}
+
+.check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.check-list li {
+    font-size: 12.5px;
+    line-height: 1.6;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--text-main);
+    word-break: keep-all;
+}
+
+.check-list li::before {
+    content: '→'; /* 모던한 에로우 포인터 */
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 1px;
+    color: var(--text-light);
+}
+
+.do-card .check-list li::before {
+    color: var(--primary-color);
+}
+
+/* Caption & Tags */
+.caption-item {
+    margin-bottom: 28px;
+}
+
+.caption-item:last-child {
+    margin-bottom: 0;
+}
+
+.caption-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.caption-header h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.tag-req {
+    font-family: 'Outfit', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-weight: 700;
+}
+
+.message-box {
+    background-color: var(--primary-light);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message-box p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: -0.01em;
+}
+
+.copy-box {
+    background-color: var(--primary-light);
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    color: var(--text-main);
+    font-family: monospace;
+    word-break: break-all;
+    letter-spacing: 0;
+}
+
+.prohibitions {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.prohibitions h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+.prohibitions ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.prohibitions ul li {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    position: relative;
+    padding-left: 16px;
+    word-break: keep-all;
+}
+
+.prohibitions ul li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Attention & Consent (Warning) */
+.warning-card {
+    background-color: #FFFFFF;
+    border: 2px solid var(--primary-color);
+}
+
+.warning-card::before {
+    display: none; /* 헤더의 실버 탑라인 제외 */
+}
+
+.warning-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    border-bottom: 1.5px solid var(--primary-color);
+    padding-bottom: 12px;
+}
+
+.warning-header i {
+    font-size: 12px;
+}
+
+.warning-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.warning-body p {
+    font-size: 13.5px;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.warning-body ul {
+    padding-left: 16px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Settlement (Payment) */
+.settlement-card {
+    border-top: none;
+}
+
+.settlement-card::before {
+    height: 4px;
+    background: var(--primary-color); /* 강력한 블랙 라인 */
+}
+
+.settle-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.settlement-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 28px;
+}
+
+.settlement-needs h4, .settlement-mail h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+    color: var(--text-main);
+    text-transform: uppercase;
+}
+
+.settlement-needs ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.settlement-needs ul li {
+    font-size: 12.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--primary-light);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.settlement-needs ul li:hover {
+    border-color: var(--text-light);
+    background-color: #FFFFFF;
+}
+
+.settlement-needs ul li i {
+    font-size: 8px;
+    color: var(--primary-color);
+}
+
+.mail-info-box {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mail-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 9px;
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.mail-value {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.mail-subject-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background-color: var(--primary-light);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+}
+
+.font-mono {
+    font-family: monospace;
+}
+
+.mail-actions {
+    margin-top: 20px;
+}
+
+.btn-mail {
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 50px 0 30px 0;
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--border-color);
+    margin-top: 80px;
+}
+
+footer p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--text-light);
+}
+
+/* Mobile Fixed Bottom Navigation */
+.bottom-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 440px;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid var(--primary-color);
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    z-index: 999;
+}
+
+.bar-btn {
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: var(--transition);
+    padding: 6px 16px;
+    border-radius: var(--radius-sm);
+}
+
+.bar-btn i {
+    font-size: 11px;
+    color: var(--primary-color);
+}
+
+.bar-btn span {
+    font-family: 'Outfit', sans-serif;
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.bar-btn:hover {
+    color: var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+.bar-btn.highlight {
+    color: #FFFFFF;
+    background-color: var(--primary-color);
+}
+
+.bar-btn.highlight i {
+    color: #FFFFFF;
+}
+
+.bar-btn.highlight:hover {
+    background-color: #333645;
+}
+
+/* Toast Alert - 시크 쿨 블랙 */
+.toast {
+    position: fixed;
+    bottom: 95px;
+    left: 50%;
+    transform: translate(-50%, 15px);
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
+.toast i {
+    color: #FFFFFF;
+    font-size: 11px;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+/* Responsive Web Layout - 모바일 최적화 세부 튜닝 */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 16px; /* 전체 좌우 패딩 축소 */
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .do-do-not-section {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .settlement-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .rec-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .hero-section {
+        padding: 55px 0 45px 0; /* 배너 여백 컴팩트화 */
+    }
+    
+    .brand-badge {
+        margin-bottom: 12px;
+        padding: 4px 12px;
+    }
+
+    .brand-title {
+        font-size: 32px; /* 모바일에서 텍스트 깨짐/넘침 방지 */
+        letter-spacing: 6px;
+        text-indent: 6px;
+    }
+
+    .brand-subtitle {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+    
+    .card {
+        padding: 24px 20px; /* 내부 공간 확보를 위해 카드 패딩 조율 */
+        margin-top: 16px;
+    }
+
+    .card-header {
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+    }
+
+    .card-header h2 {
+        font-size: 13.5px;
+    }
+
+    .product-img-wrapper {
+        height: 200px; /* 모바일 비례에 맞는 적절한 높이 설정 */
+    }
+
+    .product-info {
+        padding: 20px;
+    }
+
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .timeline::before {
+        left: 5px;
+    }
+
+    .timeline-number {
+        left: -20px;
+        width: 12px;
+        height: 12px;
+        font-size: 8px;
+        top: 4px;
+    }
+
+    .timeline-content h4 {
+        font-size: 13.5px;
+    }
+
+    .timeline-content p {
+        font-size: 12px;
+    }
+
+    .bottom-bar {
+        bottom: 12px;
+        width: calc(100% - 24px);
+        padding: 6px;
+    }
+
+    .bar-btn {
+        padding: 4px 8px;
+    }
+
+    .bar-btn span {
+        font-size: 8px;
+    }
+
+    .settlement-needs ul li {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .copy-box {
+        font-size: 11.5px;
+        padding: 12px;
+    }
+}
+
+/* ==========================================================================
+   Campaign Hub & Asset Manager Styles
+   ========================================================================== */
+
+.hub-section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1.5px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.hub-section-title h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* 4대 캠페인 리스트 그리드 */
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.hub-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-knot);
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--silver-metallic);
+}
+
+.hub-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.hub-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.hub-card .hub-badge {
+    align-self: flex-start;
+    font-family: 'Outfit', sans-serif;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.hub-card p {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    word-break: keep-all;
+}
+
+.btn-hub-link {
+    width: 100%;
+    margin-top: auto;
+    background-color: #FFFFFF;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+
+.btn-hub-link:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+}
+
+/* 애셋 관리 그리드 */
+.asset-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.asset-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.asset-card:hover {
+    border-color: var(--text-light);
+}
+
+.asset-thumb-wrapper {
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
+    background-color: var(--primary-light);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.asset-thumb-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.asset-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.asset-name {
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.asset-desc {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+.asset-meta-tags {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 8px;
+}
+
+.asset-tag {
+    font-size: 9px;
+    font-weight: 500;
+    background-color: var(--primary-light);
+    color: var(--text-muted);
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+/* 상단 허브 내비게이션 바 */
+.hub-nav {
+    background-color: #000000;
+    border-bottom: 1px solid #111111;
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.hub-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hub-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #FFFFFF;
+}
+
+.btn-hub-back {
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 14px;
+    border-radius: 2px;
+    transition: var(--transition);
+    text-transform: uppercase;
+}
+
+.btn-hub-back:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-color: #FFFFFF;
+}
+
+/* 모바일 허브 최적화 */
+@media (max-width: 600px) {
+    .hub-grid {
+        grid-template-columns: 1fr;
+    }
+    .asset-grid {
+        grid-template-columns: 1fr;
+    }
+    .asset-thumb-wrapper {
+        height: 150px;
+    }
+}
+
