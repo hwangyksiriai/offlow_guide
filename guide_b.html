@@ -14,13 +14,7 @@
 </head>
 <body>
 
-    <!-- Top Sticky Bar -->
-    <nav class="hub-nav" id="hub-navigation-bar" style="display: none;">
-        <div class="container">
-            <span class="hub-logo">OFFLOW</span>
-            <a href="index.html" class="btn-hub-back"><i class="fa-solid fa-chevron-left"></i> CAMPAIGN HUB</a>
-        </div>
-    </nav>
+
 
     <!-- Header Section -->
     <header class="hero-section">
@@ -386,20 +380,7 @@
             }, 2000);
         }
 
-        // URL 파라미터 체크하여 role=admin 일 때만 상단 네비게이션 허브 바 표시
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('role') === 'admin') {
-            const navBar = document.getElementById('hub-navigation-bar');
-            if (navBar) {
-                navBar.style.display = 'block';
-            }
-        } else {
-            // 관리자가 아닐 경우 포털 복귀 엘리먼트를 원천 파괴 (보안성 강화)
-            const navBar = document.getElementById('hub-navigation-bar');
-            if (navBar) {
-                navBar.remove();
-            }
-        }
+
     </script>
 </body>
 </html>
