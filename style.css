@@ -1642,3 +1642,348 @@ footer p {
     .guide-subtitle { margin-top: 28px; }
 }
 
+/* ==========================================================================
+   Application Form (신청서 → Google Sheets)
+   ========================================================================== */
+
+.apply-card::before {
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.apply-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    word-break: keep-all;
+}
+
+.fee-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary-color);
+    color: #FFFFFF;
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.fee-banner .fee-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.fee-banner .fee-value {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.apply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-row label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+}
+
+.req-star {
+    color: #C0392B;
+    font-weight: 700;
+}
+
+.form-row input,
+.form-row textarea {
+    font-family: inherit;
+    font-size: 13.5px;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 13px 14px;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+    color: var(--text-light);
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(18, 19, 26, 0.06);
+}
+
+.form-row textarea {
+    resize: vertical;
+    line-height: 1.6;
+    min-height: 80px;
+}
+
+#fee-select-row { flex-direction: column; }
+
+.fee-options {
+    display: flex;
+    gap: 10px;
+}
+
+.fee-options .fee-opt {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 13px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.fee-options .fee-opt:hover { border-color: var(--text-light); }
+
+.fee-options .fee-opt input { accent-color: var(--primary-color); }
+
+.consent-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background-color: var(--primary-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    cursor: pointer;
+}
+
+.consent-row input {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.consent-row span {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.consent-row small {
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 11.5px;
+}
+
+.btn-apply {
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px;
+    font-size: 12px;
+}
+
+.apply-hint {
+    font-size: 12.5px;
+    text-align: center;
+    margin-top: 2px;
+    min-height: 1em;
+    word-break: keep-all;
+}
+
+.apply-hint.error { color: #C0392B; font-weight: 600; }
+.apply-hint.ok { color: var(--primary-color); font-weight: 700; }
+
+/* ==========================================================================
+   Hub - Application Links (5만원 / 10만원)
+   ========================================================================== */
+
+.hub-section-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    word-break: keep-all;
+}
+
+.apply-link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.apply-link-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-knot);
+    padding: 26px 24px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.apply-link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--silver-metallic);
+}
+
+.apply-link-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.apply-link-card .alc-fee {
+    font-family: 'Outfit', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--primary-color);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.apply-link-card .alc-fee small {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 3px;
+    letter-spacing: 0;
+}
+
+.apply-link-card .alc-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.apply-link-card .alc-url {
+    font-family: monospace;
+    font-size: 11px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    word-break: break-all;
+}
+
+.apply-link-card .alc-actions {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.apply-link-card .alc-actions .btn {
+    width: 100%;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 11px;
+}
+
+/* ==========================================================================
+   Mobile Optimization - 신청서 / 신청 링크 / 바텀바(4버튼)
+   ========================================================================== */
+
+@media (max-width: 600px) {
+    .apply-link-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .apply-link-card {
+        padding: 22px 20px;
+    }
+
+    .apply-link-card .alc-fee {
+        font-size: 30px;
+    }
+
+    .fee-banner {
+        padding: 14px 16px;
+        margin-bottom: 20px;
+    }
+
+    .fee-banner .fee-value {
+        font-size: 18px;
+    }
+
+    .apply-form {
+        gap: 14px;
+    }
+
+    .form-row input,
+    .form-row textarea {
+        font-size: 16px; /* iOS 자동 확대 방지 */
+        padding: 12px 13px;
+    }
+
+    .fee-options .fee-opt {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .consent-row {
+        padding: 13px 14px;
+    }
+
+    .btn-apply {
+        padding: 15px;
+    }
+
+    /* 바텀바 4버튼 대응 - 간격/폰트 축소로 한 줄 유지 */
+    .bottom-bar {
+        padding: 6px 4px;
+    }
+
+    .bar-btn {
+        padding: 4px 4px;
+        gap: 3px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .bar-btn i {
+        font-size: 12px;
+    }
+
+    .bar-btn span {
+        font-size: 7.5px;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+    }
+}
+

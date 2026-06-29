@@ -437,6 +437,63 @@
             </div>
         </section>
 
+        <!-- Application Form -->
+        <section class="card apply-card" id="apply">
+            <div class="card-header">
+                <span class="card-icon"><i class="fa-solid fa-square"></i></span>
+                <h2>신청서 작성하기</h2>
+            </div>
+            <p class="apply-desc">아래 정보를 입력해 캠페인 참여를 신청해 주세요. 제출 즉시 담당자에게 전달됩니다.</p>
+
+            <div class="fee-banner">
+                <span class="fee-label">신청 금액</span>
+                <span class="fee-value" id="fee-display">아래에서 선택</span>
+            </div>
+
+            <form id="apply-form" class="apply-form" autocomplete="on">
+                <div class="form-row" id="fee-select-row" style="display:none;">
+                    <label>신청 금액 선택 <span class="req-star">*</span></label>
+                    <div class="fee-options">
+                        <label class="fee-opt"><input type="radio" name="fee_radio" value="50000"> 5만원</label>
+                        <label class="fee-opt"><input type="radio" name="fee_radio" value="100000"> 10만원</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label for="f-name">이름 <span class="req-star">*</span></label>
+                    <input type="text" id="f-name" name="이름" required placeholder="홍길동">
+                </div>
+                <div class="form-row">
+                    <label for="f-phone">연락처 <span class="req-star">*</span></label>
+                    <input type="tel" id="f-phone" name="연락처" required placeholder="010-1234-5678">
+                </div>
+                <div class="form-row">
+                    <label for="f-addr">주소 <span class="req-star">*</span></label>
+                    <input type="text" id="f-addr" name="주소" required placeholder="제품 배송 받으실 주소">
+                </div>
+                <div class="form-row">
+                    <label for="f-insta">인스타그램 링크 <span class="req-star">*</span></label>
+                    <input type="url" id="f-insta" name="인스타그램" required placeholder="https://instagram.com/your_id">
+                </div>
+                <div class="form-row">
+                    <label for="f-email">이메일 <span class="req-star">*</span></label>
+                    <input type="email" id="f-email" name="이메일" required placeholder="you@example.com">
+                </div>
+                <div class="form-row">
+                    <label for="f-req">요청사항</label>
+                    <textarea id="f-req" name="요청사항" rows="3" placeholder="전달하실 내용이 있다면 자유롭게 적어주세요. (선택)"></textarea>
+                </div>
+
+                <label class="consent-row">
+                    <input type="checkbox" id="f-consent" required>
+                    <span>원가 청구 동의 <span class="req-star">*</span><br><small>본 캠페인 참여 및 정산을 위한 원가 청구에 동의합니다.</small></span>
+                </label>
+
+                <button type="submit" class="btn btn-primary btn-apply" id="apply-submit">신청서 제출하기</button>
+                <p class="apply-hint" id="apply-hint"></p>
+            </form>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -452,13 +509,17 @@
             <i class="fa-solid fa-chevron-up"></i>
             <span>TOP</span>
         </button>
-        <button onclick="copyText('#광고 #오플로우 #OFFLOW #립추천 #메이크업', '해시태그')" class="bar-btn highlight">
+        <button onclick="copyText('#광고 #오플로우 #OFFLOW #립추천 #메이크업', '해시태그')" class="bar-btn">
             <i class="fa-solid fa-hashtag"></i>
             <span>COPY TAGS</span>
         </button>
         <button onclick="document.querySelector('.settlement-card').scrollIntoView({behavior: 'smooth'})" class="bar-btn">
             <i class="fa-solid fa-envelope"></i>
             <span>PAYMENT</span>
+        </button>
+        <button onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'})" class="bar-btn highlight">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>APPLY</span>
         </button>
     </div>
 
@@ -497,6 +558,83 @@
             }, 2000);
         }
 
+        /* ===== 신청서 → Google Sheets 연동 ===== */
+        // Apps Script 웹앱 배포 후 발급되는 URL을 아래에 붙여넣으세요.
+        const APPLY_ENDPOINT = "https://script.google.com/macros/s/AKfycbwXRH_odLetO7dvUhmX41xLmd8JikPDSQU9faf6oleexs5UIAqA-WL9OMn6Q3Eyh4QC/exec";
+
+        (function initApplyForm() {
+            const form = document.getElementById('apply-form');
+            if (!form) return;
+
+            const feeMap = { '50000': '50,000원', '100000': '100,000원' };
+            const display = document.getElementById('fee-display');
+            const selRow = document.getElementById('fee-select-row');
+            const hint = document.getElementById('apply-hint');
+            const submitBtn = document.getElementById('apply-submit');
+
+            const feeParam = new URLSearchParams(location.search).get('fee');
+            let fee = feeMap[feeParam] || '';
+
+            if (fee) {
+                display.textContent = fee;
+            } else {
+                display.textContent = '아래에서 선택';
+                selRow.style.display = 'flex';
+                selRow.querySelectorAll('input[name="fee_radio"]').forEach(function(r) {
+                    r.addEventListener('change', function() {
+                        fee = feeMap[r.value] || '';
+                        display.textContent = fee || '아래에서 선택';
+                    });
+                });
+            }
+
+            function setHint(msg, type) {
+                hint.textContent = msg;
+                hint.className = 'apply-hint' + (type ? ' ' + type : '');
+            }
+
+            form.addEventListener('submit', async function(ev) {
+                ev.preventDefault();
+                if (!fee) { setHint('신청 금액을 선택해 주세요.', 'error'); return; }
+                if (!document.getElementById('f-consent').checked) {
+                    setHint('원가 청구 동의가 필요합니다.', 'error'); return;
+                }
+                if (!APPLY_ENDPOINT || APPLY_ENDPOINT.indexOf('PASTE') === 0) {
+                    setHint('신청 폼이 아직 연결되지 않았습니다. 관리자에게 문의해 주세요.', 'error'); return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = '제출 중...';
+                setHint('', '');
+
+                const data = new URLSearchParams();
+                data.append('가격', fee);
+                data.append('이름', form.elements['이름'].value.trim());
+                data.append('연락처', form.elements['연락처'].value.trim());
+                data.append('주소', form.elements['주소'].value.trim());
+                data.append('인스타그램', form.elements['인스타그램'].value.trim());
+                data.append('이메일', form.elements['이메일'].value.trim());
+                data.append('요청사항', form.elements['요청사항'].value.trim());
+                data.append('원가청구동의', '동의');
+
+                try {
+                    await fetch(APPLY_ENDPOINT, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                        body: data.toString()
+                    });
+                    form.reset();
+                    form.style.display = 'none';
+                    showToast('신청이 완료되었습니다.');
+                    setHint('✅ 신청이 정상적으로 접수되었습니다. 감사합니다!', 'ok');
+                } catch (e) {
+                    setHint('제출 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '신청서 제출하기';
+                }
+            });
+        })();
 
     </script>
 </body>
