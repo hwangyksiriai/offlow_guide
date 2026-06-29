@@ -1,369 +1,456 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFFLOW Creator Guide - Blur Tint</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome (icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OFFLOW Creator Guide - Blur Tint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<!-- Daum(카카오) 우편번호 서비스 -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<style>
+  html, body { margin:0; padding:0; }
+  body { background:#efe6d6; -webkit-font-smoothing:antialiased; }
+  .ph { filter:saturate(1.05); }
+  @keyframes ofToastIn { from { opacity:0; transform:translate(-50%,10px); } to { opacity:1; transform:translate(-50%,0); } }
+  .of-input::placeholder { color:#8a7a6e; }
+  .of-input:focus { border-color:#e6915f !important; }
+</style>
 </head>
 <body>
+<div style="background:#efe6d6; min-height:100vh; display:flex; justify-content:center; color:#2b211b;">
+<div style="width:100%; max-width:460px; background:#f6efe3; padding-bottom:96px; position:relative; overflow:hidden;">
 
-
-
-    <!-- Header Section -->
-    <header class="hero-section">
-        <div class="glow-bg"></div>
-        <div class="container">
-            <div class="brand-badge">BLUR TINT ONLY</div>
-            <h1 class="brand-title">OFFLOW</h1>
-            <p class="brand-subtitle">CREATOR CAMPAIGN GUIDE</p>
-        </div>
-    </header>
-
-    <!-- Main Container -->
-    <main class="container">
-        
-        <!-- Brand About Section -->
-        <section class="card brand-about">
-            <div class="card-header">
-                <span class="card-icon"><i class="fa-solid fa-square"></i></span>
-                <h2>ABOUT OFFLOW</h2>
-            </div>
-            <div class="brand-about-content">
-                <p class="slogan">&ldquo;절제된 감각으로, 희미한 순간을 선명하게 바꾸는&rdquo;</p>
-                <p class="desc">오플로우는 GenZ를 타깃으로 컬러·텍스처·케어·오브제성을 하나로 엮는 새로운 립 메이크업 스탠다드를 제시합니다. 브랜드 시그니처인 <strong>'매듭(Knot)'</strong> 패키지 고유의 세련된 무드를 릴스에 감각적으로 담아주세요.</p>
-                <div class="brand-about-actions">
-                    <a href="https://offlow.co.kr/?srsltid=AfmBOooW2wxsVIGzw9BBbJ6B-dCEH_evROEDIXvzDQDyJx1wvpetOQ2z" target="_blank" class="btn btn-outline-dark" id="brand-link">
-                        OFFLOW OFFICIAL MALL <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Campaign Overview Card -->
-        <section class="card campaign-overview">
-            <div class="card-header">
-                <span class="card-icon"><i class="fa-solid fa-square"></i></span>
-                <h2>CAMPAIGN OVERVIEW</h2>
-            </div>
-            <div class="overview-grid">
-                <div class="overview-item">
-                    <span class="label">콘텐츠 타입</span>
-                    <span class="value accent-text">Reels (45초 이상)</span>
-                </div>
-                <div class="overview-item">
-                    <span class="label">공동작업자</span>
-                    <span class="value">(필수) 설정</span>
-                </div>
-                <div class="overview-item">
-                    <span class="label">2차 활용</span>
-                    <span class="value">동의 (필수)</span>
-                </div>
-                <div class="overview-item">
-                    <span class="label">파트너십 코드</span>
-                    <span class="value text-muted">선택</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Provided Products -->
-        <section class="section-products">
-            <div class="section-title">
-                <h2>PRODUCT LINE-UP</h2>
-                <p>오플로우만의 가볍고 소프트한 틴트 포뮬러</p>
-            </div>
-            
-            <div class="products-grid" style="grid-template-columns: 1fr; max-width: 480px; margin: 0 auto;">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-tag">전 색상 8종 세트</div>
-                    <div class="product-img-wrapper">
-                        <img src="images/8.jpg" alt="놋트 슬릭 블러 틴트">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-brand">OFFLOW KNOT SERIES</span>
-                        <h3>놋트 슬릭 블러 틴트</h3>
-                        <p class="product-desc">첫 터치는 촉촉하게, 피팅은 끈적임 없이 부드러운 오플로우의 대표 케어라이크 블러 틴트</p>
-                        <a href="https://offlow.co.kr/product/%EB%86%8B%ED%8A%B8-%EC%8A%AC%EB%A6%AD-%EB%B8%94%EB%9F%AC-%ED%8B%B4%ED%8A%B8-%EC%A0%84-%EC%83%89%EC%83%81-8%EC%A2%85-%EC%84%B8%ED%8A%B8/60/category/29/display/1/" target="_blank" class="btn btn-sm btn-product" id="product-link-1">
-                            VIEW DETAILS <i class="fa-solid fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Video Production Guide -->
-        <section class="card video-guide">
-            <div class="card-header">
-                <span class="card-icon"><i class="fa-solid fa-square"></i></span>
-                <h2>CONTENTS GUIDE</h2>
-            </div>
-            
-            <p class="guide-intro">블러 틴트만의 실키한 텍스처 피팅 및 블렌딩 스머징을 감각적으로 연출해 주세요.</p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-number">01</div>
-                    <div class="timeline-content">
-                        <h4>손등 발색 &rarr; 입술 발색 <span class="badge badge-required">(필수)</span></h4>
-                        <p>처음 손등에 가볍게 터치하여 촉촉한 첫 제형을 보여준 다음, 입술에 올리며 실발색되는 과정을 편집해 주세요.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-number">02</div>
-                    <div class="timeline-content">
-                        <h4>립 핏 클로즈업 <span class="badge badge-required">(필수)</span></h4>
-                        <p>주름이나 각질 부각 없이 입술 주름 사이사이를 매끄럽게 메우는 보송한 립 밀착 컷을 강조해 주세요.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-number">03</div>
-                    <div class="timeline-content">
-                        <h4>블러 스머징의 변화 연출 <span class="badge badge-required">(필수)</span></h4>
-                        <p><strong>촉촉한 첫 터치 &rarr; 블렌딩(스머징) &rarr; 보송하게 피팅되는 마무리</strong>의 대조가 뚜렷이 드러나야 합니다.</p>
-                        <div class="sub-tips">
-                            <span><i class="fa-solid fa-minus"></i> 음파 운동이나 손가락/면봉 팁으로 스머징하며 부드럽고 가벼운 블러 필터 필링이 강조되도록 앵글 설정</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-number">04</div>
-                    <div class="timeline-content">
-                        <h4>본품 풀샷 노출 <span class="badge badge-required">(필수)</span></h4>
-                        <p>오플로우만의 유니크한 '매듭(Knot)' 패키지 디자인 본품 풀샷을 <strong>최소 2초 이상</strong> 담아주세요.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="recommendations">
-                <h3>CREATOR RECOMMENDATIONS (추천)</h3>
-                <div class="rec-grid">
-                    <div class="rec-card">
-                        <i class="fa-solid fa-circle"></i>
-                        <span>퍼스널 컬러별 추천 홋수 언급</span>
-                    </div>
-                    <div class="rec-card">
-                        <i class="fa-solid fa-circle"></i>
-                        <span>스머징을 활용한 오버립 팁</span>
-                    </div>
-                    <div class="rec-card">
-                        <i class="fa-solid fa-circle"></i>
-                        <span>매듭 패키지의 오브제 컷 연출</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DO & DO NOT -->
-        <section class="do-do-not-section">
-            <!-- DO -->
-            <div class="card do-card">
-                <div class="card-header border-do">
-                    <span class="card-icon text-do"><i class="fa-solid fa-check"></i></span>
-                    <h2 class="text-do">DO</h2>
-                </div>
-                <ul class="check-list">
-                    <li>그라데이션 립에서 완벽한 풀립으로 전환하는 정교한 연출</li>
-                    <li>블러 틴트 여러 홋수를 그라데이션 레이어링하는 믹스 가이드</li>
-                    <li>메이크업 전/후 각질 정돈 및 립 핏 상태의 시각적 대비</li>
-                </ul>
-            </div>
-
-            <!-- DO NOT -->
-            <div class="card donot-card">
-                <div class="card-header border-donot">
-                    <span class="card-icon text-donot"><i class="fa-solid fa-xmark"></i></span>
-                    <h2 class="text-donot">DO NOT</h2>
-                </div>
-                <ul class="check-list">
-                    <li>인위적이거나 제품 고유 컬러를 훼손하는 과도한 노란빛/붉은빛 보정</li>
-                    <li>실제 제품 발색 무드(보송한 블러)와 왜곡된 오일리한 필터 처리</li>
-                    <li>지나치게 번들거리거나 촉촉함만을 강조하여 블러 매트 속성을 방해하는 표현</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Caption Guide -->
-        <section class="card caption-guide">
-            <div class="card-header">
-                <span class="card-icon"><i class="fa-solid fa-square"></i></span>
-                <h2>CAPTION &amp; TAGS</h2>
-            </div>
-            
-            <div class="caption-item">
-                <div class="caption-header">
-                    <h4>💡 필수 언급 핵심 메시지</h4>
-                    <span class="tag-req">(필수) 포함</span>
-                </div>
-                <div class="message-box">
-                    <p>&ldquo;첫 터치는 촉촉, 마무리는 정돈되는 블러 텍스처&rdquo;</p>
-                    <p>&ldquo;입술 결을 정리해주는 케어 라이크 포뮬러&rdquo;</p>
-                    <p>&ldquo;과하지 않지만 또렷하게 올라오는 실발색&rdquo;</p>
-                </div>
-            </div>
-
-            <div class="caption-item">
-                <div class="caption-header">
-                    <h4>👥 필수 공동작업자 태그</h4>
-                    <button class="btn btn-xs btn-copy" onclick="copyText('@offlow.makeup @offlow.world', '공동작업자 태그')">
-                        COPY TAGS
-                    </button>
-                </div>
-                <div class="copy-box">@offlow.makeup @offlow.world</div>
-            </div>
-
-            <div class="caption-item">
-                <div class="caption-header">
-                    <h4># 필수 해시태그</h4>
-                    <button class="btn btn-xs btn-copy" onclick="copyText('#광고 #오플로우 #OFFLOW #립추천 #메이크업', '해시태그')">
-                        COPY HASHTAGS
-                    </button>
-                </div>
-                <div class="copy-box">#광고 #오플로우 #OFFLOW #립추천 #메이크업</div>
-            </div>
-
-            <div class="prohibitions">
-                <h3>🚫 캡션 및 영상 금지 사항</h3>
-                <ul>
-                    <li>최상급 표현 사용 자제 (예: 제일, 최고, 1위, No.1 등)</li>
-                    <li>타사 립 브랜드 로고 노출 불가</li>
-                    <li>과도하고 큰 귀걸이나 의상의 무리한 러플 장식 지양 (제품 차단 방지)</li>
-                    <li>사용 중 립 통증 또는 자극에 대한 부정적 언급 자제</li>
-                    <li>의학적/치료적 기능성 오인 소지의 효능성 주장 금지</li>
-                    <li>저작권 확인이 되지 않은 상업용 불가 BGM 음원 절대 사용 금지</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Deadlines & Warnings -->
-        <section class="card warning-card">
-            <div class="warning-header">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <h2>ATTENTION &amp; CONSENT</h2>
-            </div>
-            <div class="warning-body">
-                <p>⚠️ <strong>업로드 기한을 철저히 엄수해 주시기 바랍니다.</strong></p>
-                <ul>
-                    <li>기한 내 업로드가 누락되는 경우 리워드(고료) 지급 처리가 불가능합니다.</li>
-                    <li>업로드 시 공동작업자 태그 설정 및 콘텐츠 2차 활용에 자동으로 동의하는 것으로 간주됩니다.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Settlement Information -->
-        <section class="card settlement-card">
-            <div class="card-header">
-                <span class="card-icon"><i class="fa-solid fa-square"></i></span>
-                <h2>PAYMENT PROCESS</h2>
-            </div>
-            <p class="settle-desc">캠페인 등록 완료 후, 정산을 위한 서류 및 연락처를 누락 없이 제출해 주세요. 확인 후 1~2주 이내에 처리가 완료됩니다.</p>
-            
-            <div class="settlement-grid">
-                <div class="settlement-needs">
-                    <h4>제출 필수 서류</h4>
-                    <ul>
-                        <li><i class="fa-solid fa-chevron-right"></i> 본인 연락처</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> 신분증 사본 (주민등록번호 뒷자리 포함)</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> 통장 사본</li>
-                    </ul>
-                </div>
-                
-                <div class="settlement-mail">
-                    <h4>이메일 제출 안내</h4>
-                    <div class="mail-info-box">
-                        <span class="mail-label">수신 이메일</span>
-                        <div class="mail-subject-wrapper">
-                            <span class="mail-value font-mono">hwangyksiriai@gmail.com</span>
-                            <button class="btn btn-xs btn-copy-icon" onclick="copyText('hwangyksiriai@gmail.com', '수신 이메일')" title="이메일 복사">
-                                <i class="fa-regular fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="mail-info-box">
-                        <span class="mail-label">메일 제목 양식</span>
-                        <div class="mail-subject-wrapper">
-                            <span class="mail-value font-mono" id="subject-format">[오플로우_이름_@인스타핸들]</span>
-                            <button class="btn btn-xs btn-copy-icon" onclick="copyText('[오플로우_이름_@인스타핸들]', '메일 제목 양식')" title="제목 복사">
-                                <i class="fa-regular fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="mail-actions">
-                        <a href="mailto:hwangyksiriai@gmail.com?subject=[오플로우_이름_@인스타핸들]&body=본인 연락처: %0D%0A(신분증 사본 및 통장 사본을 파일로 첨부해 주세요.)" class="btn btn-primary btn-mail" id="send-mail-link">
-                            SEND E-MAIL
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 OFFLOW. All rights reserved. Creator Partnership.</p>
-        </div>
-    </footer>
-
-    <!-- Bottom Navigation Bar (Mobile Quick Action) -->
-    <div class="bottom-bar">
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bar-btn">
-            <i class="fa-solid fa-chevron-up"></i>
-            <span>TOP</span>
-        </button>
-        <button onclick="copyText('#광고 #오플로우 #OFFLOW #립추천 #메이크업', '해시태그')" class="bar-btn highlight">
-            <i class="fa-solid fa-hashtag"></i>
-            <span>COPY TAGS</span>
-        </button>
-        <button onclick="document.querySelector('.settlement-card').scrollIntoView({behavior: 'smooth'})" class="bar-btn">
-            <i class="fa-solid fa-envelope"></i>
-            <span>PAYMENT</span>
-        </button>
+  <!-- ===== HERO ===== -->
+  <header style="position:relative; padding:64px 26px 46px; overflow:hidden;">
+    <div style="position:absolute; top:-120px; right:-80px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, rgba(191,77,46,0.16), rgba(191,77,46,0) 70%);"></div>
+    <div style="position:relative;">
+      <span style="display:inline-block; font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.28em; color:#bf4d2e; border:1px solid #d8a78f; border-radius:100px; padding:6px 14px;">BLUR TINT ONLY</span>
+      <h1 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:104px; line-height:0.82; letter-spacing:-0.02em; margin:30px 0 0; color:#2b211b;">OFFLOW</h1>
+      <p style="font-family:'Pretendard',sans-serif; font-size:12px; letter-spacing:0.34em; color:#9a8a7c; margin:18px 0 0;">CREATOR CAMPAIGN GUIDE</p>
     </div>
+  </header>
 
-    <!-- Toast Notification System -->
-    <div id="toast" class="toast">
-        <i class="fa-solid fa-circle-notch fa-spin"></i>
-        <span id="toast-message">Copied to clipboard.</span>
-    </div>
+  <div style="padding:0 16px; display:flex; flex-direction:column; gap:16px;">
 
-    <script>
-        function copyText(text, type) {
-            navigator.clipboard.writeText(text).then(function() {
-                showToast(type + '이(가) 복사되었습니다.');
-            }, function(err) {
-                const textArea = document.createElement("textarea");
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                    showToast(type + '이(가) 복사되었습니다.');
-                } catch (err) {
-                    showToast('복사에 실패했습니다.');
-                }
-                document.body.removeChild(textArea);
-            });
-        }
+    <!-- ===== ABOUT ===== -->
+    <section style="background:#fff; border-radius:20px; padding:26px 22px; box-shadow:0 6px 30px rgba(90,55,30,0.06);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+        <span style="width:9px; height:9px; background:#bf4d2e; display:inline-block;"></span>
+        <h2 style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.22em; margin:0; white-space:nowrap; color:#2b211b;">ABOUT OFFLOW</h2>
+      </div>
+      <p style="font-family:'Pretendard',sans-serif; font-weight:600; font-size:25px; line-height:1.32; color:#2b211b; margin:0 0 16px;">“절제된 감각으로, 희미한 순간을 선명하게 바꾸는”</p>
+      <p style="font-family:'Pretendard',sans-serif; font-size:14px; line-height:1.75; color:#6a5a4e; margin:0;">오플로우는 GenZ를 타깃으로 컬러·텍스처·케어·오브제성을 하나로 엮는 새로운 립 메이크업 스탠다드를 제시합니다. 브랜드 시그니처인 <b style="color:#bf4d2e; font-weight:700;">'매듭(Knot)'</b> 패키지 고유의 세련된 무드를 릴스에 감각적으로 담아주세요.</p>
+      <a href="https://offlow.co.kr/" target="_blank" style="display:inline-flex; align-items:center; gap:8px; margin-top:20px; font-family:'Pretendard',sans-serif; font-size:11px; letter-spacing:0.12em; color:#2b211b; text-decoration:none; border:1px solid #2b211b; border-radius:100px; padding:10px 18px;">OFFLOW OFFICIAL MALL <span style="font-size:12px;">↗</span></a>
+    </section>
 
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.innerText = message;
-            toast.classList.add('show');
-            setTimeout(function() {
-                toast.classList.remove('show');
-            }, 2000);
-        }
+    <!-- ===== CAMPAIGN OVERVIEW ===== -->
+    <section style="background:#2b211b; border-radius:20px; padding:26px 22px; color:#f6efe3;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+        <span style="width:9px; height:9px; background:#e6915f; display:inline-block;"></span>
+        <h2 style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.22em; margin:0; white-space:nowrap; color:#f6efe3;">CAMPAIGN OVERVIEW</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,0.12); border-radius:12px; overflow:hidden;">
+        <div style="background:#2b211b; padding:16px 14px;">
+          <div style="font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.1em; color:#a8978a; text-transform:uppercase;">콘텐츠 타입</div>
+          <div style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:14px; color:#e6915f; margin-top:6px;">Reels · 25초+</div>
+        </div>
+        <div style="background:#2b211b; padding:16px 14px;">
+          <div style="font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.1em; color:#a8978a; text-transform:uppercase;">공동작업자</div>
+          <div style="font-family:'Pretendard',sans-serif; font-weight:600; font-size:14px; color:#f6efe3; margin-top:6px;">필수 설정</div>
+        </div>
+        <div style="background:#2b211b; padding:16px 14px;">
+          <div style="font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.1em; color:#a8978a; text-transform:uppercase;">2차 활용</div>
+          <div style="font-family:'Pretendard',sans-serif; font-weight:600; font-size:14px; color:#f6efe3; margin-top:6px;">동의 필수</div>
+        </div>
+        <div style="background:#2b211b; padding:16px 14px;">
+          <div style="font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.1em; color:#a8978a; text-transform:uppercase;">파트너십 코드</div>
+          <div style="font-family:'Pretendard',sans-serif; font-weight:500; font-size:14px; color:#a8978a; margin-top:6px;">선택</div>
+        </div>
+      </div>
+    </section>
 
+    <!-- ===== PRODUCT LINE-UP (single) ===== -->
+    <section style="padding:14px 6px 4px;">
+      <div style="text-align:center; margin-bottom:20px;">
+        <h2 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:30px; margin:0; color:#2b211b;">Product Line-up</h2>
+        <p style="font-family:'Pretendard',sans-serif; font-size:12.5px; color:#9a8a7c; margin:6px 0 0;">가볍고 소프트한 오플로우의 케어라이크 블러 틴트</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr; max-width:300px; margin:0 auto;">
+        <div style="background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 6px 24px rgba(90,55,30,0.07);">
+          <div style="position:relative;">
+            <div style="aspect-ratio:1/1; overflow:hidden; background:#ece2d0;">
+              <img class="ph" src="images/8.jpg" alt="놋트 슬릭 블러 틴트" style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <span style="position:absolute; top:8px; left:8px; font-family:'Pretendard',sans-serif; font-size:9px; letter-spacing:0.04em; white-space:nowrap; background:rgba(43,33,27,0.82); color:#f6efe3; padding:4px 8px; border-radius:100px;">전 색상 8종 세트</span>
+          </div>
+          <div style="padding:14px 14px 16px;">
+            <div style="font-family:'Pretendard',sans-serif; font-size:8px; letter-spacing:0.16em; color:#bf4d2e;">KNOT SERIES</div>
+            <h3 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:15px; line-height:1.25; margin:5px 0 0; color:#2b211b;">놋트 슬릭 블러 틴트</h3>
+            <p style="font-family:'Pretendard',sans-serif; font-size:11.5px; line-height:1.5; color:#9a8a7c; margin:6px 0 0;">첫 터치는 촉촉하게, 피팅은 끈적임 없이 부드러운 오플로우의 대표 케어라이크 블러 틴트</p>
+            <a href="https://offlow.co.kr/product/%EB%86%8B%ED%8A%B8-%EC%8A%AC%EB%A6%AD-%EB%B8%94%EB%9F%AC-%ED%8B%B4%ED%8A%B8-%EC%A0%84-%EC%83%89%EC%83%81-8%EC%A2%85-%EC%84%B8%ED%8A%B8/60/category/29/display/1/" target="_blank" style="display:inline-flex; align-items:center; gap:5px; margin-top:10px; font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.08em; color:#2b211b; text-decoration:none;">VIEW DETAILS <span>›</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    </script>
+    <!-- ===== CONTENTS GUIDE ===== -->
+    <section style="background:#fff; border-radius:20px; padding:26px 22px; box-shadow:0 6px 30px rgba(90,55,30,0.06);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:22px;">
+        <span style="width:9px; height:9px; background:#bf4d2e; display:inline-block;"></span>
+        <h2 style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.22em; margin:0; white-space:nowrap;">CONTENTS GUIDE</h2>
+      </div>
+
+      <h3 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:23px; margin:0 0 4px; color:#2b211b;">연출 가이드</h3>
+      <p style="font-family:'Pretendard',sans-serif; font-size:12.5px; color:#9a8a7c; margin:0 0 18px;">블러 틴트만의 실키한 텍스처 피팅 및 블렌딩 스머징을 감각적으로 연출해 주세요.</p>
+      <div style="display:flex; flex-direction:column; gap:0;">
+        <div style="display:flex; gap:14px;">
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <div style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:12px; width:34px; height:34px; border-radius:50%; background:#bf4d2e; color:#fff; display:flex; align-items:center; justify-content:center;">01</div>
+            <div style="width:1.5px; flex:1; background:#ece2d0; margin:4px 0;"></div>
+          </div>
+          <div style="padding-bottom:18px;">
+            <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:14px; margin:6px 0 0;">손등 발색 → 입술 발색 <span style="font-family:'Pretendard',sans-serif; font-size:9px; color:#fff; background:#bf4d2e; padding:2px 7px; border-radius:100px; letter-spacing:0.04em; vertical-align:middle;">필수</span></h4>
+            <p style="font-family:'Pretendard',sans-serif; font-size:12.5px; line-height:1.6; color:#8a7a6e; margin:6px 0 0;">처음 손등에 가볍게 터치하여 촉촉한 첫 제형을 보여준 다음, 입술에 올리며 실발색되는 과정을 편집해 주세요.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px;">
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <div style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:12px; width:34px; height:34px; border-radius:50%; background:#bf4d2e; color:#fff; display:flex; align-items:center; justify-content:center;">02</div>
+            <div style="width:1.5px; flex:1; background:#ece2d0; margin:4px 0;"></div>
+          </div>
+          <div style="padding-bottom:18px;">
+            <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:14px; margin:6px 0 0;">립 핏 클로즈업 <span style="font-family:'Pretendard',sans-serif; font-size:9px; color:#fff; background:#bf4d2e; padding:2px 7px; border-radius:100px; letter-spacing:0.04em; vertical-align:middle;">필수</span></h4>
+            <p style="font-family:'Pretendard',sans-serif; font-size:12.5px; line-height:1.6; color:#8a7a6e; margin:6px 0 0;">주름이나 각질 부각 없이 입술 주름 사이사이를 매끄럽게 메우는 보송한 립 밀착 컷을 강조해 주세요.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px;">
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <div style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:12px; width:34px; height:34px; border-radius:50%; background:#bf4d2e; color:#fff; display:flex; align-items:center; justify-content:center;">03</div>
+            <div style="width:1.5px; flex:1; background:#ece2d0; margin:4px 0;"></div>
+          </div>
+          <div style="padding-bottom:18px;">
+            <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:14px; margin:6px 0 0;">블러 스머징의 변화 연출 <span style="font-family:'Pretendard',sans-serif; font-size:9px; color:#fff; background:#bf4d2e; padding:2px 7px; border-radius:100px; letter-spacing:0.04em; vertical-align:middle;">필수</span></h4>
+            <p style="font-family:'Pretendard',sans-serif; font-size:12.5px; line-height:1.6; color:#8a7a6e; margin:6px 0 8px;"><b style="color:#2b211b;">촉촉한 첫 터치 → 블렌딩(스머징) → 보송하게 피팅되는 마무리</b>의 대조가 뚜렷이 드러나야 합니다.</p>
+            <div style="background:#f6efe3; border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; gap:6px;">
+              <span style="font-family:'Pretendard',sans-serif; font-size:11.5px; line-height:1.5; color:#6a5a4e;">— 음파 운동이나 손가락/면봉 팁으로 스머징하며 부드럽고 가벼운 블러 필터 필링이 강조되도록 앵글을 설정해 주세요.</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px;">
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <div style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:12px; width:34px; height:34px; border-radius:50%; background:#bf4d2e; color:#fff; display:flex; align-items:center; justify-content:center;">04</div>
+          </div>
+          <div>
+            <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:14px; margin:6px 0 0;">본품 풀샷 노출 <span style="font-family:'Pretendard',sans-serif; font-size:9px; color:#fff; background:#bf4d2e; padding:2px 7px; border-radius:100px; letter-spacing:0.04em; vertical-align:middle;">필수</span></h4>
+            <p style="font-family:'Pretendard',sans-serif; font-size:12.5px; line-height:1.6; color:#8a7a6e; margin:6px 0 0;">유니크한 '매듭(Knot)' 패키지 본품 풀샷을 <b style="color:#2b211b;">최소 2초 이상</b> 선명하게 담아주세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- recommendations -->
+      <div style="margin-top:26px; background:#2b211b; border-radius:16px; padding:20px;">
+        <h3 style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.16em; color:#e6915f; margin:0 0 14px;">CREATOR RECOMMENDATIONS</h3>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:10px; font-family:'Pretendard',sans-serif; font-size:13px; color:#f6efe3;"><span style="width:5px; height:5px; border-radius:50%; background:#e6915f;"></span>퍼스널 컬러별 추천 호수 언급</div>
+          <div style="display:flex; align-items:center; gap:10px; font-family:'Pretendard',sans-serif; font-size:13px; color:#f6efe3;"><span style="width:5px; height:5px; border-radius:50%; background:#e6915f;"></span>스머징을 활용한 오버립 팁</div>
+          <div style="display:flex; align-items:center; gap:10px; font-family:'Pretendard',sans-serif; font-size:13px; color:#f6efe3;"><span style="width:5px; height:5px; border-radius:50%; background:#e6915f;"></span>매듭 패키지의 오브제 컷 연출</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DO / DO NOT ===== -->
+    <section style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div style="background:#fff; border-radius:18px; padding:20px 18px; box-shadow:0 6px 24px rgba(90,55,30,0.06);">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px; padding-bottom:12px; border-bottom:2px solid #bf4d2e;">
+          <span style="font-family:'Pretendard',sans-serif; font-weight:700; color:#bf4d2e; font-size:14px;">✓</span>
+          <h2 style="font-family:'Pretendard',sans-serif; font-size:15px; font-weight:700; letter-spacing:0.04em; margin:0; color:#bf4d2e;">DO</h2>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-family:'Pretendard',sans-serif; font-size:12.5px; line-height:1.5; color:#5a4a40;">
+          <span>그라데이션 립에서 완벽한 풀립으로 전환하는 정교한 연출</span>
+          <span>블러 틴트 여러 호수를 그라데이션 레이어링하는 믹스 가이드</span>
+          <span>메이크업 전/후 각질 정돈 및 립 핏 상태의 시각적 대비</span>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:18px; padding:20px 18px; box-shadow:0 6px 24px rgba(90,55,30,0.06);">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px; padding-bottom:12px; border-bottom:2px solid #4a3f37;">
+          <span style="font-family:'Pretendard',sans-serif; font-weight:700; color:#4a3f37; font-size:14px;">✕</span>
+          <h2 style="font-family:'Pretendard',sans-serif; font-size:15px; font-weight:700; letter-spacing:0.04em; margin:0; color:#4a3f37;">DO NOT</h2>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-family:'Pretendard',sans-serif; font-size:12.5px; line-height:1.5; color:#5a4a40;">
+          <span>인위적이거나 제품 고유 컬러를 훼손하는 과도한 노란빛/붉은빛 보정</span>
+          <span>실제 발색 무드(보송한 블러)와 왜곡된 오일리한 필터 처리</span>
+          <span>지나치게 번들거리거나 촉촉함만 강조해 블러 매트 속성을 방해하는 표현</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CAPTION & TAGS ===== -->
+    <section style="background:#fff; border-radius:20px; padding:26px 22px; box-shadow:0 6px 30px rgba(90,55,30,0.06);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+        <span style="width:9px; height:9px; background:#bf4d2e; display:inline-block;"></span>
+        <h2 style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.22em; margin:0; white-space:nowrap;">CAPTION &amp; TAGS</h2>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+        <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:13.5px; margin:0;">💡 필수 언급 핵심 메시지</h4>
+        <span style="font-family:'Pretendard',sans-serif; font-size:9px; color:#bf4d2e; border:1px solid #e3b6a5; border-radius:100px; padding:3px 9px;">필수 포함</span>
+      </div>
+      <div style="background:#f6efe3; border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; gap:8px; font-family:'Pretendard',sans-serif; font-weight:600; font-size:15px; line-height:1.45; color:#3a2e26;">
+        <span>“첫 터치는 촉촉, 마무리는 정돈되는 블러 텍스처”</span>
+        <span>“입술 결을 정리해주는 케어 라이크 포뮬러”</span>
+        <span>“과하지 않지만 또렷하게 올라오는 실발색”</span>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin:24px 0 10px;">
+        <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:13.5px; margin:0;">📝 캡션 내용</h4>
+        <span style="font-family:'Pretendard',sans-serif; font-size:9px; color:#bf4d2e; border:1px solid #e3b6a5; border-radius:100px; padding:3px 9px;">필수 포함</span>
+      </div>
+      <div style="background:#f6efe3; border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; gap:7px; font-family:'Pretendard',sans-serif; font-size:12.5px; line-height:1.55; color:#5a4a40;">
+        <span>“오플로우”</span>
+        <span>“KNOT SLEEK BLUR TINT / 놋트 슬릭 블러 틴트”</span>
+        <span>매듭 틴트 / 놋트 틴트</span>
+        <span style="color:#8a7a6e;">(슬릭 블러 틴트) 바를 때는 촉촉, 시간이 지나면 가볍게 밀착되는 블러 마무리</span>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin:24px 0 10px;">
+        <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:13.5px; margin:0;">👥 공동작업자 태그</h4>
+        <button onclick="copyTags()" style="font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.06em; color:#fff; background:#2b211b; border:none; border-radius:100px; padding:7px 13px; cursor:pointer;">COPY TAGS</button>
+      </div>
+      <div style="background:#f6efe3; border-radius:12px; padding:14px 16px; font-family:'Pretendard',sans-serif; font-size:13px; color:#2b211b;">@offlow.makeup @offlow.world</div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin:24px 0 10px;">
+        <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:13.5px; margin:0;"># 필수 해시태그</h4>
+        <button onclick="copyHash()" style="font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.06em; color:#fff; background:#2b211b; border:none; border-radius:100px; padding:7px 13px; cursor:pointer;">COPY HASHTAGS</button>
+      </div>
+      <div style="background:#f6efe3; border-radius:12px; padding:14px 16px; font-family:'Pretendard',sans-serif; font-size:13px; color:#2b211b;">#광고 #오플로우 #OFFLOW #립추천 #메이크업</div>
+
+      <div style="margin-top:26px; border:1px solid #ece2d0; border-radius:14px; padding:18px;">
+        <h3 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:13.5px; margin:0 0 12px; color:#2b211b;">🚫 캡션 및 영상 금지 사항</h3>
+        <div style="display:flex; flex-direction:column; gap:8px; font-family:'Pretendard',sans-serif; font-size:12px; line-height:1.5; color:#8a7a6e;">
+          <span>· 최상급 표현 자제 (제일, 최고, 1위, No.1 등)</span>
+          <span>· 타사 립 브랜드 로고 노출 불가</span>
+          <span>· 과한 귀걸이·러플 장식 지양 (제품 차단 방지)</span>
+          <span>· 립 통증·자극 관련 부정 언급 자제</span>
+          <span>· 의학적/치료적 기능성 오인 주장 금지</span>
+          <span>· 저작권 미확인 BGM 음원 사용 금지</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ATTENTION ===== -->
+    <section style="background:#bf4d2e; border-radius:20px; padding:24px 22px; color:#fff;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+        <span style="font-size:18px;">⚠️</span>
+        <h2 style="font-family:'Pretendard',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.16em; margin:0;">ATTENTION &amp; CONSENT</h2>
+      </div>
+      <p style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:14px; margin:0 0 12px;">업로드 기한을 철저히 엄수해 주시기 바랍니다.</p>
+      <div style="display:flex; flex-direction:column; gap:8px; font-family:'Pretendard',sans-serif; font-size:12.5px; line-height:1.55; color:#ffe2d8;">
+        <span>· 기한 내 업로드 누락 시 리워드(고료) 지급이 불가합니다.</span>
+        <span>· 업로드 시 공동작업자 태그 설정 및 2차 활용에 자동 동의로 간주됩니다.</span>
+      </div>
+    </section>
+
+    <!-- ===== PAYMENT ===== -->
+    <section id="payment" style="background:#fff; border-radius:20px; padding:26px 22px; box-shadow:0 6px 30px rgba(90,55,30,0.06);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+        <span style="width:9px; height:9px; background:#bf4d2e; display:inline-block;"></span>
+        <h2 style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.22em; margin:0; white-space:nowrap;">PAYMENT PROCESS</h2>
+      </div>
+      <p style="font-family:'Pretendard',sans-serif; font-size:13px; line-height:1.7; color:#6a5a4e; margin:0 0 20px;">캠페인 등록 완료 후, 정산을 위한 서류 및 연락처를 누락 없이 제출해 주세요. 확인 후 1~2주 이내에 처리가 완료됩니다.</p>
+
+      <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:13px; margin:0 0 10px; color:#2b211b;">제출 필수 서류</h4>
+      <div style="display:flex; flex-direction:column; gap:7px; font-family:'Pretendard',sans-serif; font-size:12.5px; color:#5a4a40; margin-bottom:20px;">
+        <span style="display:flex; gap:8px;"><span style="color:#bf4d2e;">›</span> 본인 연락처</span>
+        <span style="display:flex; gap:8px;"><span style="color:#bf4d2e;">›</span> 신분증 사본 (주민등록번호 뒷자리 포함)</span>
+        <span style="display:flex; gap:8px;"><span style="color:#bf4d2e;">›</span> 통장 사본</span>
+      </div>
+
+      <h4 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:13px; margin:0 0 10px; color:#2b211b;">이메일 제출 안내</h4>
+      <div style="background:#f6efe3; border-radius:12px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <div><div style="font-family:'Pretendard',sans-serif; font-size:9px; letter-spacing:0.1em; color:#9a8a7c;">수신 이메일</div><div style="font-family:'Pretendard',sans-serif; font-size:13px; color:#2b211b; margin-top:3px;">hwangyksiriai@gmail.com</div></div>
+        <button onclick="copyEmail()" style="font-family:'Pretendard',sans-serif; font-size:11px; color:#2b211b; background:#fff; border:1px solid #ddccba; border-radius:8px; padding:8px 10px; cursor:pointer;">복사</button>
+      </div>
+      <div style="background:#f6efe3; border-radius:12px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+        <div><div style="font-family:'Pretendard',sans-serif; font-size:9px; letter-spacing:0.1em; color:#9a8a7c;">메일 제목 양식</div><div style="font-family:'Pretendard',sans-serif; font-size:13px; color:#2b211b; margin-top:3px;">[오플로우_이름_@인스타핸들]</div></div>
+        <button onclick="copySubject()" style="font-family:'Pretendard',sans-serif; font-size:11px; color:#2b211b; background:#fff; border:1px solid #ddccba; border-radius:8px; padding:8px 10px; cursor:pointer;">복사</button>
+      </div>
+      <a href="mailto:hwangyksiriai@gmail.com?subject=[오플로우_이름_@인스타핸들]&body=본인%20연락처:%20%0D%0A(신분증%20사본%20및%20통장%20사본을%20파일로%20첨부해%20주세요.)" style="display:flex; align-items:center; justify-content:center; gap:8px; font-family:'Pretendard',sans-serif; font-size:13px; letter-spacing:0.08em; color:#fff; background:#2b211b; border-radius:100px; padding:15px; text-decoration:none;">SEND E-MAIL</a>
+    </section>
+
+    <!-- ===== APPLY ===== -->
+    <section id="apply" style="background:#2b211b; border-radius:20px; padding:28px 22px; color:#f6efe3;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+        <span style="width:9px; height:9px; background:#e6915f; display:inline-block;"></span>
+        <h2 style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.22em; margin:0; white-space:nowrap; color:#f6efe3;">APPLICATION</h2>
+      </div>
+      <h3 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:30px; margin:0 0 8px; color:#f6efe3;">신청서 작성하기</h3>
+      <p style="font-family:'Pretendard',sans-serif; font-size:12.5px; line-height:1.7; color:#bca99c; margin:0 0 20px;">캠페인 참여를 원하시면 아래 버튼을 눌러 신청서를 작성해 주세요. 제출 즉시 담당자에게 전달됩니다.</p>
+
+      <div id="applyToggleWrap">
+        <button type="button" onclick="openApply()" style="width:100%; font-family:'Pretendard',sans-serif; font-size:14px; letter-spacing:0.06em; font-weight:600; color:#2b211b; background:#e6915f; border:none; border-radius:100px; padding:16px; cursor:pointer;">✎ 신청서 작성하기</button>
+      </div>
+
+      <form id="apply-form" autocomplete="on" style="display:none;">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div id="fee-select-row" style="display:none;">
+            <label style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:600; color:#cbb9ac; display:block; margin-bottom:7px;">신청 금액 <span style="color:#e6915f;">*</span></label>
+            <div style="display:flex; gap:8px;">
+              <label style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; font-family:'Pretendard',sans-serif; font-size:14px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px; cursor:pointer;"><input type="radio" name="fee_radio" value="50000" style="accent-color:#e6915f;"> 5만원</label>
+              <label style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; font-family:'Pretendard',sans-serif; font-size:14px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px; cursor:pointer;"><input type="radio" name="fee_radio" value="100000" style="accent-color:#e6915f;"> 10만원</label>
+            </div>
+          </div>
+          <div>
+            <label for="f-name" style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:600; color:#cbb9ac; display:block; margin-bottom:7px;">이름 <span style="color:#e6915f;">*</span></label>
+            <input id="f-name" name="이름" type="text" required placeholder="홍길동" class="of-input" style="width:100%; box-sizing:border-box; font-family:'Pretendard',sans-serif; font-size:16px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px 14px; outline:none;">
+          </div>
+          <div>
+            <label for="f-phone" style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:600; color:#cbb9ac; display:block; margin-bottom:7px;">연락처 <span style="color:#e6915f;">*</span></label>
+            <input id="f-phone" name="연락처" type="tel" required placeholder="010-1234-5678" class="of-input" style="width:100%; box-sizing:border-box; font-family:'Pretendard',sans-serif; font-size:16px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px 14px; outline:none;">
+          </div>
+          <div>
+            <label style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:600; color:#cbb9ac; display:block; margin-bottom:7px;">주소 <span style="color:#e6915f;">*</span></label>
+            <div style="display:flex; gap:8px; margin-bottom:8px;">
+              <input id="f-zip" name="우편번호" type="text" placeholder="우편번호" readonly class="of-input" style="flex:1; min-width:0; box-sizing:border-box; font-family:'Pretendard',sans-serif; font-size:16px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px 14px; outline:none;">
+              <button type="button" id="addr-btn" style="font-family:'Pretendard',sans-serif; font-size:13px; font-weight:600; color:#2b211b; background:#cbb9ac; border:none; border-radius:10px; padding:0 16px; cursor:pointer; white-space:nowrap;">주소 검색</button>
+            </div>
+            <input id="f-addr" name="주소" type="text" required placeholder="주소 검색 버튼을 눌러주세요" readonly class="of-input" style="width:100%; box-sizing:border-box; font-family:'Pretendard',sans-serif; font-size:16px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px 14px; outline:none; margin-bottom:8px;">
+            <input id="f-addr-detail" name="상세주소" type="text" placeholder="상세주소 (동/호수 등 직접 입력)" class="of-input" style="width:100%; box-sizing:border-box; font-family:'Pretendard',sans-serif; font-size:16px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px 14px; outline:none;">
+          </div>
+          <div>
+            <label for="f-insta" style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:600; color:#cbb9ac; display:block; margin-bottom:7px;">인스타그램 링크 <span style="color:#e6915f;">*</span></label>
+            <input id="f-insta" name="인스타그램" type="url" required placeholder="https://instagram.com/your_id" class="of-input" style="width:100%; box-sizing:border-box; font-family:'Pretendard',sans-serif; font-size:16px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px 14px; outline:none;">
+          </div>
+          <div>
+            <label for="f-email" style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:600; color:#cbb9ac; display:block; margin-bottom:7px;">이메일 <span style="color:#e6915f;">*</span></label>
+            <input id="f-email" name="이메일" type="email" required placeholder="you@example.com" class="of-input" style="width:100%; box-sizing:border-box; font-family:'Pretendard',sans-serif; font-size:16px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px 14px; outline:none;">
+          </div>
+          <div>
+            <label for="f-req" style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:600; color:#cbb9ac; display:block; margin-bottom:7px;">요청사항</label>
+            <textarea id="f-req" name="요청사항" rows="3" placeholder="전달하실 내용이 있다면 자유롭게 적어주세요. (선택)" class="of-input" style="width:100%; box-sizing:border-box; font-family:'Pretendard',sans-serif; font-size:16px; color:#f6efe3; background:#3a2e26; border:1px solid #4a3d34; border-radius:10px; padding:13px 14px; outline:none; resize:vertical;"></textarea>
+          </div>
+          <label style="display:flex; gap:10px; align-items:flex-start; font-family:'Pretendard',sans-serif; font-size:12px; line-height:1.5; color:#cbb9ac; cursor:pointer;">
+            <input id="f-consent" type="checkbox" required style="margin-top:2px; accent-color:#e6915f;">
+            <span>안내된 캠페인별 가이드라인 및 고료 조건을 확인했으며 이에 동의합니다. 제작된 콘텐츠는 브랜드 및 SIRIAI의 2차 활용에 동의합니다. <span style="color:#e6915f;">(필수)</span></span>
+          </label>
+          <button type="submit" id="apply-submit" style="width:100%; font-family:'Pretendard',sans-serif; font-size:14px; letter-spacing:0.06em; font-weight:600; color:#2b211b; background:#e6915f; border:none; border-radius:100px; padding:16px; cursor:pointer;">신청서 제출하기</button>
+          <p id="apply-hint" style="font-family:'Pretendard',sans-serif; font-size:12px; text-align:center; margin:0; min-height:16px;"></p>
+        </div>
+      </form>
+    </section>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="text-align:center; padding:34px 22px 24px;">
+    <p style="font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.1em; color:#a8978a; margin:0;">© 2026 OFFLOW. All rights reserved. Creator Partnership.</p>
+  </footer>
+
+  <!-- ===== BOTTOM BAR ===== -->
+  <div style="position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:460px; background:rgba(246,239,227,0.92); backdrop-filter:blur(10px); border-top:1px solid #e3d8c8; display:grid; grid-template-columns:repeat(4,1fr); z-index:40;">
+    <button onclick="goTop()" style="display:flex; flex-direction:column; align-items:center; gap:3px; padding:11px 0; background:none; border:none; cursor:pointer; font-family:'Pretendard',sans-serif; font-size:9px; letter-spacing:0.06em; color:#6a5a4e;"><span style="font-size:14px;">↑</span>TOP</button>
+    <button onclick="copyHash()" style="display:flex; flex-direction:column; align-items:center; gap:3px; padding:11px 0; background:none; border:none; cursor:pointer; font-family:'Pretendard',sans-serif; font-size:9px; letter-spacing:0.06em; color:#6a5a4e;"><span style="font-size:14px;">#</span>COPY TAGS</button>
+    <button onclick="goPay()" style="display:flex; flex-direction:column; align-items:center; gap:3px; padding:11px 0; background:none; border:none; cursor:pointer; font-family:'Pretendard',sans-serif; font-size:9px; letter-spacing:0.06em; color:#6a5a4e;"><span style="font-size:14px;">✉</span>PAYMENT</button>
+    <button onclick="goApply()" style="display:flex; flex-direction:column; align-items:center; gap:3px; padding:11px 0; background:#bf4d2e; border:none; cursor:pointer; font-family:'Pretendard',sans-serif; font-size:9px; letter-spacing:0.06em; color:#fff;"><span style="font-size:14px;">✎</span>APPLY</button>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div>
+    <div style="position:fixed; bottom:78px; left:50%; transform:translateX(-50%); background:#2b211b; color:#f6efe3; font-family:'Pretendard',sans-serif; font-size:13px; padding:12px 20px; border-radius:100px; z-index:60; box-shadow:0 6px 24px rgba(0,0,0,0.2); animation:ofToastIn 0.22s ease; white-space:nowrap; display:none;" id="toastBubble"></div>
+  </div>
+
+</div>
+</div>
+<script>
+// ===== 신청서 전송 엔드포인트 (Google Apps Script 웹앱) =====
+const APPLY_ENDPOINT = "https://script.google.com/macros/s/AKfycbwXRH_odLetO7dvUhmX41xLmd8JikPDSQU9faf6oleexs5UIAqA-WL9OMn6Q3Eyh4QC/exec";
+
+function showToast(msg){var b=document.getElementById('toastBubble');b.textContent=msg;b.style.display='block';clearTimeout(window._oft);window._oft=setTimeout(function(){b.style.display='none';},1800);}
+function copyText(t,l){try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t);}else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);}}catch(e){}showToast(l+' 복사됨');}
+function copyTags(){copyText('@offlow.makeup @offlow.world','공동작업자 태그');}
+function copyHash(){copyText('#광고 #오플로우 #OFFLOW #립추천 #메이크업','해시태그');}
+function copyEmail(){copyText('hwangyksiriai@gmail.com','이메일');}
+function copySubject(){copyText('[오플로우_이름_@인스타핸들]','메일 제목');}
+function openApply(){var t=document.getElementById('applyToggleWrap');if(t)t.style.display='none';var f=document.getElementById('apply-form');if(f)f.style.display='block';}
+function smoothTo(sel){var el=document.querySelector(sel);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-16,behavior:'smooth'});}
+function goTop(){window.scrollTo({top:0,behavior:'smooth'});}
+function goPay(){smoothTo('#payment');}
+function goApply(){openApply();setTimeout(function(){smoothTo('#apply');},60);}
+
+(function initApplyForm(){
+  const form = document.getElementById('apply-form');
+  if(!form) return;
+
+  const feeMap = { '50000':'50,000원', '100000':'100,000원' };
+  const codeMap = { 'a':'50,000원', 'b':'100,000원' };
+  const qs = new URLSearchParams(location.search);
+  let fee = codeMap[qs.get('type')] || feeMap[qs.get('fee')] || '';
+
+  const selRow = document.getElementById('fee-select-row');
+  if(!fee){
+    selRow.style.display = 'block';
+    selRow.querySelectorAll('input[name="fee_radio"]').forEach(function(r){
+      r.addEventListener('change', function(){ fee = feeMap[r.value] || ''; });
+    });
+  }
+
+  const addrBtn = document.getElementById('addr-btn');
+  addrBtn.addEventListener('click', function(){
+    if(typeof daum === 'undefined' || !daum.Postcode){ setHint('주소 검색 모듈을 불러오지 못했습니다. 새로고침 후 다시 시도해 주세요.', true); return; }
+    new daum.Postcode({ oncomplete: function(data){
+      document.getElementById('f-zip').value = data.zonecode;
+      document.getElementById('f-addr').value = (data.userSelectedType === 'R') ? data.roadAddress : data.jibunAddress;
+      document.getElementById('f-addr-detail').focus();
+    }}).open();
+  });
+
+  const hint = document.getElementById('apply-hint');
+  const submitBtn = document.getElementById('apply-submit');
+  function setHint(msg, isErr){ hint.textContent = msg; hint.style.color = isErr ? '#ffb59b' : '#9fe0b0'; }
+
+  form.addEventListener('submit', async function(ev){
+    ev.preventDefault();
+    if(!fee){ setHint('신청 금액을 선택해 주세요.', true); return; }
+    if(!document.getElementById('f-addr').value.trim()){ setHint('주소 검색 버튼을 눌러 주소를 입력해 주세요.', true); return; }
+    if(!document.getElementById('f-consent').checked){ setHint('필수 동의 항목에 체크해 주세요.', true); return; }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '제출 중...';
+    setHint('', false);
+
+    const zip = document.getElementById('f-zip').value.trim();
+    const baseAddr = document.getElementById('f-addr').value.trim();
+    const detail = document.getElementById('f-addr-detail').value.trim();
+    const fullAddr = (zip ? '(' + zip + ') ' : '') + baseAddr + (detail ? ' ' + detail : '');
+
+    const data = new URLSearchParams();
+    data.append('가격', fee);
+    data.append('이름', form.elements['이름'].value.trim());
+    data.append('연락처', form.elements['연락처'].value.trim());
+    data.append('주소', fullAddr);
+    data.append('인스타그램', form.elements['인스타그램'].value.trim());
+    data.append('이메일', form.elements['이메일'].value.trim());
+    data.append('요청사항', form.elements['요청사항'].value.trim());
+    data.append('원가청구동의', '동의');
+
+    try {
+      await fetch(APPLY_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: data.toString()
+      });
+      form.style.display = 'none';
+      showToast('신청이 접수되었습니다. 감사합니다!');
+    } catch (e) {
+      setHint('제출 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.', true);
+      submitBtn.disabled = false;
+      submitBtn.textContent = '신청서 제출하기';
+    }
+  });
+})();
+</script>
 </body>
 </html>
