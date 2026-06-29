@@ -11,6 +11,8 @@
     <!-- FontAwesome (icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Daum(카카오) 우편번호 서비스 -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 
@@ -450,11 +452,6 @@
             </button>
 
             <div class="apply-collapse" id="apply-collapse" hidden>
-            <div class="fee-banner">
-                <span class="fee-label">신청 금액</span>
-                <span class="fee-value" id="fee-display">아래에서 선택</span>
-            </div>
-
             <form id="apply-form" class="apply-form" autocomplete="on">
                 <div class="form-row" id="fee-select-row" style="display:none;">
                     <label>신청 금액 선택 <span class="req-star">*</span></label>
@@ -474,7 +471,12 @@
                 </div>
                 <div class="form-row">
                     <label for="f-addr">주소 <span class="req-star">*</span></label>
-                    <input type="text" id="f-addr" name="주소" required placeholder="제품 배송 받으실 주소">
+                    <div class="addr-search">
+                        <input type="text" id="f-zip" name="우편번호" readonly placeholder="우편번호" class="addr-zip">
+                        <button type="button" id="addr-btn" class="btn btn-sm btn-addr">주소 검색</button>
+                    </div>
+                    <input type="text" id="f-addr" name="주소" readonly required placeholder="주소 검색 버튼을 눌러주세요" class="addr-base">
+                    <input type="text" id="f-addr-detail" name="상세주소" placeholder="상세주소 (동/호수 등 직접 입력)" class="addr-detail">
                 </div>
                 <div class="form-row">
                     <label for="f-insta">인스타그램 링크 <span class="req-star">*</span></label>
@@ -574,7 +576,6 @@
 
             const feeMap = { '50000': '50,000원', '100000': '100,000원' };
             const codeMap = { 'a': '50,000원', 'b': '100,000원' };
-            const display = document.getElementById('fee-display');
             const selRow = document.getElementById('fee-select-row');
             const hint = document.getElementById('apply-hint');
             const submitBtn = document.getElementById('apply-submit');
@@ -594,16 +595,31 @@
             toggleBtn.addEventListener('click', openApply);
             window.openApplyForm = openApply;
 
-            if (fee) {
-                display.textContent = fee;
-            } else {
-                display.textContent = '아래에서 선택';
+            if (!fee) {
                 selRow.style.display = 'flex';
                 selRow.querySelectorAll('input[name="fee_radio"]').forEach(function(r) {
                     r.addEventListener('change', function() {
                         fee = feeMap[r.value] || '';
-                        display.textContent = fee || '아래에서 선택';
                     });
+                });
+            }
+
+            // 주소 검색 (Daum 우편번호 서비스)
+            const addrBtn = document.getElementById('addr-btn');
+            if (addrBtn) {
+                addrBtn.addEventListener('click', function() {
+                    if (typeof daum === 'undefined' || !daum.Postcode) {
+                        setHint('주소 검색 모듈을 불러오지 못했습니다. 새로고침 후 다시 시도해 주세요.', 'error');
+                        return;
+                    }
+                    new daum.Postcode({
+                        oncomplete: function(data) {
+                            document.getElementById('f-zip').value = data.zonecode;
+                            document.getElementById('f-addr').value =
+                                (data.userSelectedType === 'R') ? data.roadAddress : data.jibunAddress;
+                            document.getElementById('f-addr-detail').focus();
+                        }
+                    }).open();
                 });
             }
 
@@ -615,8 +631,11 @@
             form.addEventListener('submit', async function(ev) {
                 ev.preventDefault();
                 if (!fee) { setHint('신청 금액을 선택해 주세요.', 'error'); return; }
+                if (!document.getElementById('f-addr').value.trim()) {
+                    setHint('주소 검색 버튼을 눌러 주소를 입력해 주세요.', 'error'); return;
+                }
                 if (!document.getElementById('f-consent').checked) {
-                    setHint('원가 청구 동의가 필요합니다.', 'error'); return;
+                    setHint('필수 동의 항목에 체크해 주세요.', 'error'); return;
                 }
                 if (!APPLY_ENDPOINT || APPLY_ENDPOINT.indexOf('PASTE') === 0) {
                     setHint('신청 폼이 아직 연결되지 않았습니다. 관리자에게 문의해 주세요.', 'error'); return;
@@ -630,7 +649,11 @@
                 data.append('가격', fee);
                 data.append('이름', form.elements['이름'].value.trim());
                 data.append('연락처', form.elements['연락처'].value.trim());
-                data.append('주소', form.elements['주소'].value.trim());
+                const zip = document.getElementById('f-zip').value.trim();
+                const baseAddr = document.getElementById('f-addr').value.trim();
+                const detail = document.getElementById('f-addr-detail').value.trim();
+                const fullAddr = (zip ? '(' + zip + ') ' : '') + baseAddr + (detail ? ' ' + detail : '');
+                data.append('주소', fullAddr);
                 data.append('인스타그램', form.elements['인스타그램'].value.trim());
                 data.append('이메일', form.elements['이메일'].value.trim());
                 data.append('요청사항', form.elements['요청사항'].value.trim());

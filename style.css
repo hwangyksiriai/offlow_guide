@@ -1734,6 +1734,41 @@ footer p {
     box-shadow: 0 0 0 3px rgba(18, 19, 26, 0.06);
 }
 
+/* 주소 검색 (Daum 우편번호) */
+.addr-search {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.addr-search .addr-zip {
+    flex: 1;
+    min-width: 0;
+}
+
+.btn-addr {
+    flex-shrink: 0;
+    white-space: nowrap;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: 1px solid var(--primary-color);
+    padding: 0 18px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.btn-addr:hover {
+    background-color: #333645;
+    border-color: #333645;
+}
+
+/* 검색으로 채워지는 읽기전용 칸 표시 */
+.form-row input.addr-zip[readonly],
+.form-row input.addr-base[readonly] {
+    background-color: var(--primary-light);
+    cursor: default;
+}
+
 .form-row textarea {
     resize: vertical;
     line-height: 1.6;
