@@ -443,8 +443,13 @@
                 <span class="card-icon"><i class="fa-solid fa-square"></i></span>
                 <h2>신청서 작성하기</h2>
             </div>
-            <p class="apply-desc">아래 정보를 입력해 캠페인 참여를 신청해 주세요. 제출 즉시 담당자에게 전달됩니다.</p>
+            <p class="apply-desc">캠페인 참여를 원하시면 아래 버튼을 눌러 신청서를 작성해 주세요. 제출 즉시 담당자에게 전달됩니다.</p>
 
+            <button type="button" class="btn btn-primary btn-apply-toggle" id="apply-toggle">
+                <i class="fa-solid fa-pen-to-square"></i> 신청서 작성하기
+            </button>
+
+            <div class="apply-collapse" id="apply-collapse" hidden>
             <div class="fee-banner">
                 <span class="fee-label">신청 금액</span>
                 <span class="fee-value" id="fee-display">아래에서 선택</span>
@@ -492,6 +497,7 @@
                 <button type="submit" class="btn btn-primary btn-apply" id="apply-submit">신청서 제출하기</button>
                 <p class="apply-hint" id="apply-hint"></p>
             </form>
+            </div>
         </section>
 
     </main>
@@ -517,7 +523,7 @@
             <i class="fa-solid fa-envelope"></i>
             <span>PAYMENT</span>
         </button>
-        <button onclick="document.getElementById('apply').scrollIntoView({behavior: 'smooth'})" class="bar-btn highlight">
+        <button onclick="window.openApplyForm ? window.openApplyForm() : document.getElementById('apply').scrollIntoView({behavior: 'smooth'})" class="bar-btn highlight">
             <i class="fa-solid fa-pen-to-square"></i>
             <span>APPLY</span>
         </button>
@@ -576,6 +582,17 @@
             const qs = new URLSearchParams(location.search);
             // type=a/b(노출용 코드) 우선, 기존 fee= 링크도 호환
             let fee = codeMap[qs.get('type')] || feeMap[qs.get('fee')] || '';
+
+            // '신청서 작성하기' 버튼 → 입력 영역 펼치기
+            const toggleBtn = document.getElementById('apply-toggle');
+            const collapse = document.getElementById('apply-collapse');
+            function openApply() {
+                collapse.hidden = false;
+                toggleBtn.style.display = 'none';
+                document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            toggleBtn.addEventListener('click', openApply);
+            window.openApplyForm = openApply;
 
             if (fee) {
                 display.textContent = fee;
