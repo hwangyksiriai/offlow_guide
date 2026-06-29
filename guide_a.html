@@ -567,13 +567,15 @@
             if (!form) return;
 
             const feeMap = { '50000': '50,000원', '100000': '100,000원' };
+            const codeMap = { 'a': '50,000원', 'b': '100,000원' };
             const display = document.getElementById('fee-display');
             const selRow = document.getElementById('fee-select-row');
             const hint = document.getElementById('apply-hint');
             const submitBtn = document.getElementById('apply-submit');
 
-            const feeParam = new URLSearchParams(location.search).get('fee');
-            let fee = feeMap[feeParam] || '';
+            const qs = new URLSearchParams(location.search);
+            // type=a/b(노출용 코드) 우선, 기존 fee= 링크도 호환
+            let fee = codeMap[qs.get('type')] || feeMap[qs.get('fee')] || '';
 
             if (fee) {
                 display.textContent = fee;
