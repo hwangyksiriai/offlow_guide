@@ -33,6 +33,19 @@
 </style>
 </head>
 <body>
+
+  <!-- ===== PASSWORD GATE ===== -->
+  <div id="gate" style="position:fixed; inset:0; z-index:9999; background:#efe6d6; display:flex; align-items:center; justify-content:center; padding:24px;">
+    <div style="width:100%; max-width:340px; background:#fff; border-radius:24px; padding:34px 26px; box-shadow:0 12px 40px rgba(90,55,30,0.14); text-align:center;">
+      <div style="display:inline-block; font-family:'Pretendard',sans-serif; font-size:10px; letter-spacing:0.28em; color:#bf4d2e; border:1px solid #d8a78f; border-radius:100px; padding:6px 14px;">OFFLOW</div>
+      <h2 style="font-family:'Pretendard',sans-serif; font-weight:700; font-size:22px; color:#2b211b; margin:20px 0 6px;">관계자 전용 페이지</h2>
+      <p style="font-family:'Pretendard',sans-serif; font-size:12.5px; color:#9a8a7c; margin:0 0 20px;">비밀번호를 입력해 주세요.</p>
+      <input id="gate-pw" type="password" inputmode="numeric" autocomplete="off" placeholder="비밀번호" style="width:100%; box-sizing:border-box; font-family:'Pretendard',sans-serif; font-size:16px; text-align:center; letter-spacing:0.2em; color:#2b211b; background:#f6efe3; border:1px solid #ddccba; border-radius:12px; padding:14px; outline:none;">
+      <button onclick="tryUnlock()" style="width:100%; margin-top:12px; font-family:'Pretendard',sans-serif; font-size:14px; font-weight:600; letter-spacing:0.06em; color:#fff; background:#2b211b; border:none; border-radius:100px; padding:15px; cursor:pointer;">입장하기</button>
+      <p id="gate-msg" style="font-family:'Pretendard',sans-serif; font-size:12px; color:#bf4d2e; margin:12px 0 0; min-height:16px;"></p>
+    </div>
+  </div>
+
 <div style="background:#efe6d6; min-height:100vh; display:flex; justify-content:center; color:#2b211b;">
 <div style="width:100%; max-width:460px; background:#f6efe3; padding-bottom:48px; position:relative; overflow:hidden;">
 
@@ -237,6 +250,10 @@
 <script>
 function showToast(msg){var b=document.getElementById('toastBubble');b.textContent=msg;b.style.display='block';clearTimeout(window._oft);window._oft=setTimeout(function(){b.style.display='none';},1800);}
 function copyText(t,l){try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t);}else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);}}catch(e){}showToast(l+' 복사됨');}
+
+// ===== 허브 비밀번호 게이트 =====
+function tryUnlock(){var v=(document.getElementById('gate-pw').value||'').trim();if(v==='0907'){try{sessionStorage.setItem('of_hub_ok','1');}catch(e){}document.getElementById('gate').style.display='none';}else{document.getElementById('gate-msg').textContent='비밀번호가 올바르지 않습니다.';var i=document.getElementById('gate-pw');i.value='';i.focus();}}
+(function(){try{if(sessionStorage.getItem('of_hub_ok')==='1'){document.getElementById('gate').style.display='none';return;}}catch(e){}var i=document.getElementById('gate-pw');if(i){try{i.focus();}catch(e){}i.addEventListener('keydown',function(e){if(e.key==='Enter')tryUnlock();});}})();
 </script>
 </body>
 </html>
